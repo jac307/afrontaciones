@@ -436,3 +436,134 @@ body.inner-page {
   outline: 2px solid darkred;
   outline-offset: 4px;
 }
+
+/* -------------------------------------------------- */
+/* Testimonies page */
+/* -------------------------------------------------- */
+
+body.testimonies-page {
+  background-image: url("imgs/bg-img3.jpg");
+}
+
+.testimonies-content {
+  width: min(88vw, 1000px);
+  min-height: 0;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding:
+    clamp(1rem, 2.5vh, 2rem)
+    clamp(0.25rem, 1vw, 0.75rem);
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  scrollbar-gutter: stable;
+  overscroll-behavior: contain;
+}
+
+.testimonies-grid {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(2, auto);
+
+  gap:
+    clamp(0.75rem, 2vh, 1.5rem)
+    clamp(0.75rem, 2vw, 2rem);
+}
+
+.testimony-item {
+  position: relative;
+
+  display: block;
+  width: 100%;
+  min-width: 0;
+
+  overflow: hidden;
+
+  color: black;
+  text-decoration: none;
+
+  -webkit-tap-highlight-color: rgba(139, 0, 0, 0.35);
+}
+
+.testimony-item img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1000 / 726;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.testimony-label {
+  position: absolute;
+  top: clamp(0.4rem, 1vw, 1rem);
+  left: 50%;
+  z-index: 2;
+
+  transform: translateX(-50%);
+
+  max-width: 90%;
+
+  font-family: "Elegant Typewriter", "Courier New", monospace;
+  font-size: clamp(0.75rem, 1.6vw, 1.3rem);
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+
+  color: black;
+
+  text-shadow: 0 1px 5px rgba(255, 255, 255, 0.9);
+}
+
+.testimony-item:hover img,
+.testimony-item:focus-visible img {
+  transform: scale(1.04);
+  opacity: 0.85;
+}
+
+.testimony-item:hover .testimony-label,
+.testimony-item:focus-visible .testimony-label {
+  color: darkred;
+}
+
+.testimony-item:focus-visible {
+  outline: 2px solid darkred;
+  outline-offset: 4px;
+}
+
+.testimony-item:active {
+  outline: 2px solid darkred;
+}
+
+@media (max-width: 600px) {
+  .testimonies-content {
+    width: 100%;
+  }
+
+  .testimonies-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto;
+  }
+
+  .testimony-label {
+    font-size: clamp(0.8rem, 4vw, 1.2rem);
+  }
+}
+
+@media (max-width: 400px) {
+  .testimonies-grid {
+    grid-template-columns: 1fr;
+  }
+}
