@@ -63,13 +63,12 @@ body {
    3. HOMEPAGE
    ================================================== */
 
-/* Homepage background and fixed-screen behaviour */
+/* Homepage becomes one column on smaller screens */
 
 body.home-page {
-  height: 100vh;
-  height: 100dvh;
-
-  overflow: hidden;
+  height: auto;
+  min-height: 100dvh;
+  overflow-y: auto;
 
   background-image: url("imgs/bg-img.jpg");
 }
@@ -77,25 +76,21 @@ body.home-page {
 
 /* Centres the homepage title and navigation images */
 
-.home-layout {
-  position: fixed;
-  inset: 0;
+home-layout {
+  position: relative;
+  inset: auto;
 
-  width: 100%;
-  height: 100vh;
-  height: 100dvh;
+  height: auto;
+  min-height: 100dvh;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 
-  gap: clamp(1rem, 4vh, 3rem);
-  padding: clamp(1rem, 3vw, 3rem);
+  padding:
+    clamp(1.5rem, 5vh, 3rem)
+    clamp(1rem, 4vw, 2rem);
 
-  overflow: hidden;
+  overflow: visible;
 }
-
 
 /* Homepage title */
 
@@ -118,13 +113,9 @@ body.home-page {
 /* Three-column homepage menu */
 
 .image-menu {
-  width: min(92vw, 1100px);
-  min-width: 0;
-
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-
-  gap: clamp(0.5rem, 2.5vw, 2.5rem);
+  width: min(90vw, 420px);
+  grid-template-columns: 1fr;
+  gap: 1rem;
 }
 
 
@@ -165,22 +156,7 @@ body.home-page {
 /* Text positioned over each homepage image */
 
 .menu-label {
-  position: absolute;
-  top: clamp(0.4rem, 1vw, 1rem);
-  left: 50%;
-  z-index: 2;
-
-  transform: translateX(-50%);
-
-  max-width: 90%;
-
-  font-family: var(--font-main);
-  font-size: clamp(0.65rem, 1.7vw, 1.4rem);
-  font-weight: 700;
-  text-align: center;
-  white-space: nowrap;
-
-  text-shadow: 0 1px 5px rgba(255, 255, 255, 0.8);
+  font-size: clamp(1rem, 5vw, 1.4rem);
 }
 
 
