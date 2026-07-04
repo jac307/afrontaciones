@@ -27,10 +27,18 @@ body {
 }
 
 body {
-  background-image: url("imgs/bg-img.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+body.home-page {
+  background-image: url("imgs/bg-img.jpg");
+}
+
+body.inner-page {
+  background-image: url("imgs/bg-img2.jpg");
 }
 
 .home-layout {
