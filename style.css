@@ -27,7 +27,7 @@ body {
 }
 
 body {
-  background-image: url("images/background.webp");
+  background-image: url("imgs/bg-img.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -53,15 +53,17 @@ body {
 }
 
 .site-title {
-  width: 100%;
+  width: fit-content;
+  max-width: 80vw;
   margin: 0;
 
   font-family: "Cinematica", sans-serif;
-  font-size: clamp(1.5rem, 3vw, 3rem);
+  font-size: clamp(1.5rem, 5vw, 6rem);
   font-weight: normal;
   line-height: 1;
   text-align: center;
-  white-space: nowrap;
+
+  white-space: normal;
 }
 
 .image-menu {
