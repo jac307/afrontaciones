@@ -58,17 +58,17 @@ body {
   font-weight: 400;
 }
 
-
 /* ==================================================
    3. HOMEPAGE
    ================================================== */
 
-/* Homepage becomes one column on smaller screens */
+/* Homepage background and fixed desktop layout */
 
 body.home-page {
-  height: auto;
-  min-height: 100dvh;
-  overflow-y: auto;
+  height: 100vh;
+  height: 100dvh;
+
+  overflow: hidden;
 
   background-image: url("imgs/bg-img.jpg");
 }
@@ -76,21 +76,25 @@ body.home-page {
 
 /* Centres the homepage title and navigation images */
 
-home-layout {
-  position: relative;
-  inset: auto;
+.home-layout {
+  position: fixed;
+  inset: 0;
 
-  height: auto;
-  min-height: 100dvh;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
 
-  justify-content: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-  padding:
-    clamp(1.5rem, 5vh, 3rem)
-    clamp(1rem, 4vw, 2rem);
+  gap: clamp(1rem, 4vh, 3rem);
+  padding: clamp(1rem, 3vw, 3rem);
 
-  overflow: visible;
+  overflow: hidden;
 }
+
 
 /* Homepage title */
 
@@ -110,12 +114,16 @@ home-layout {
 }
 
 
-/* Three-column homepage menu */
+/* Three-column homepage menu on larger screens */
 
 .image-menu {
-  width: min(90vw, 420px);
-  grid-template-columns: 1fr;
-  gap: 1rem;
+  width: min(92vw, 1100px);
+  min-width: 0;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: clamp(0.5rem, 2.5vw, 2.5rem);
 }
 
 
@@ -153,13 +161,6 @@ home-layout {
 }
 
 
-/* Text positioned over each homepage image */
-
-.menu-label {
-  font-size: clamp(1rem, 5vw, 1.4rem);
-}
-
-
 /* Homepage image interaction */
 
 .menu-item:hover img,
@@ -176,7 +177,6 @@ home-layout {
 .menu-item:active {
   outline: var(--focus-width) solid var(--color-accent);
 }
-
 
 /* ==================================================
    4. SHARED INNER-PAGE LAYOUT
@@ -324,7 +324,7 @@ body.inner-page {
   overscroll-behavior: contain;
 
   font-family: var(--font-main);
-  font-size: clamp(1.3rem, 2.3vw, 1.25rem);
+  font-size: clamp(1.3rem, 2.3vw, 1.6rem);
   font-weight: 400;
   line-height: 1.65;
 }
@@ -643,6 +643,44 @@ body.testimonies-page {
   .inner-layout {
     width: 90vw;
     padding: 1rem 0;
+  }
+
+  /* Homepage becomes one column */
+
+  body.home-page {
+    height: auto;
+    min-height: 100dvh;
+
+    overflow-y: auto;
+  }
+
+  .home-layout {
+    position: relative;
+    inset: auto;
+
+    width: 100%;
+    height: auto;
+    min-height: 100dvh;
+
+    justify-content: flex-start;
+
+    padding:
+      clamp(1.5rem, 5vh, 3rem)
+      clamp(1rem, 4vw, 2rem);
+
+    overflow: visible;
+  }
+
+  .image-menu {
+    width: min(90vw, 420px);
+
+    grid-template-columns: 1fr;
+
+    gap: 1rem;
+  }
+
+  .site-title {
+    font-size: clamp(1.5rem, 8vw, 3rem);
   }
 
   .inner-header {
