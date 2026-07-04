@@ -773,6 +773,19 @@ body.testimony-page .inner-divider-top {
   overscroll-behavior: contain;
 }
 
+/* Titles above testimony videos and images */
+
+.testimony-section-title {
+  margin: 0 0 clamp(1rem, 2vh, 1.5rem);
+
+  color: white;
+
+  font-family: var(--font-main);
+  font-size: clamp(1.25rem, 2.5vw, 2rem);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
 
 /* ------------------------------
    Testimony video
