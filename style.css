@@ -715,3 +715,133 @@ body.testimonies-page {
     grid-template-columns: 1fr;
   }
 }
+
+/* ==================================================
+   15. INDIVIDUAL TESTIMONY PAGES
+   uno.html, dos.html, tres.html, etc.
+   ================================================== */
+
+/* Uses the same background as the Testimonies menu */
+
+body.testimony-page {
+  background-image: url("imgs/bg-img3.jpg");
+}
+
+
+/* White page title and return button */
+
+body.testimony-page .inner-header h1 {
+  color: white;
+}
+
+body.testimony-page .home-button,
+body.testimony-page .home-button:visited {
+  color: white;
+}
+
+body.testimony-page .home-button:hover,
+body.testimony-page .home-button:focus-visible {
+  color: var(--color-accent);
+}
+
+
+/* White top dividing line */
+
+body.testimony-page .inner-divider-top {
+  border-top-color: white;
+}
+
+
+/*
+  Main scrollable area.
+  The title, lines, and metal object remain fixed.
+*/
+
+.testimony-content {
+  width: min(86vw, 950px);
+  min-height: 0;
+  margin: 0 auto;
+
+  padding:
+    clamp(1.5rem, 4vh, 3rem)
+    clamp(0.25rem, 1vw, 0.75rem);
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  scrollbar-gutter: stable;
+  overscroll-behavior: contain;
+}
+
+
+/* ------------------------------
+   Testimony video
+   ------------------------------ */
+
+.testimony-video-section {
+  width: 100%;
+  margin: 0 auto clamp(2rem, 5vh, 4rem);
+}
+
+.testimony-video {
+  display: block;
+
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
+
+  background-color: black;
+  object-fit: contain;
+}
+
+
+/* ------------------------------
+   Testimony image gallery
+   ------------------------------ */
+
+.testimony-gallery {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+}
+
+.testimony-gallery-item {
+  width: 100%;
+  margin: 0;
+
+  overflow: hidden;
+}
+
+.testimony-gallery-item img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+/* ------------------------------
+   Individual testimony pages on phones
+   ------------------------------ */
+
+@media (max-width: 600px) {
+  .testimony-content {
+    width: 100%;
+    padding: 1.25rem 0.25rem;
+  }
+
+  .testimony-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .testimony-gallery-item img {
+    height: auto;
+    aspect-ratio: auto;
+    object-fit: contain;
+  }
+}
