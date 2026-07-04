@@ -57,7 +57,7 @@ body {
   max-width: 80vw;
   margin: 0;
 
-  font-family: "Cinematica", sans-serif;
+  font-family: Elegant Typewriter, American Typewriter;
   font-size: clamp(1.5rem, 5vw, 6rem);
   font-weight: normal;
   line-height: 1;
@@ -133,7 +133,7 @@ body {
 }
 
 .menu-item:active {
-  outline: 2px solid red;
+  outline: 2px solid darkred;
 }
 
 @media (max-aspect-ratio: 3 / 4) {
