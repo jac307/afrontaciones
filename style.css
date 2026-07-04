@@ -412,7 +412,7 @@ body.inner-page {
 }
 
 .content-image-small {
-  width: min(100%, 600px);
+  width: min(100%, 800px);
 }
 
 /* -------------------------------------------------- */
