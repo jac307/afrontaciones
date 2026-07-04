@@ -57,7 +57,7 @@ body {
   margin: 0;
 
   font-family: "Cinematica", sans-serif;
-  font-size: clamp(1.5rem, 6vw, 6rem);
+  font-size: clamp(1.5rem, 3vw, 3rem);
   font-weight: normal;
   line-height: 1;
   text-align: center;
@@ -90,6 +90,8 @@ body {
   width: 100%;
   height: auto;
   aspect-ratio: 1000 / 726;
+
+  -webkit-tap-highlight-color: darkred;
 
   object-fit: cover;
 
@@ -124,8 +126,12 @@ body {
 }
 
 .menu-item:focus-visible {
-  outline: 2px solid currentColor;
-  outline-offset: 8px;
+  outline: 2px solid darkred;
+  outline-offset: 4px;
+}
+
+.menu-item:active {
+  outline: 2px solid red;
 }
 
 @media (max-aspect-ratio: 3 / 4) {
