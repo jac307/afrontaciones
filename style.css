@@ -163,6 +163,9 @@ body.inner-page {
   overflow: hidden;
 
   background-image: url("imgs/bg-img2.jpg");
+  background-position: center bottom;
+
+  --metal-clearance: clamp(7rem, 12vh, 10rem);
 }
 
 .inner-layout {
@@ -174,7 +177,10 @@ body.inner-page {
   display: grid;
   grid-template-rows: auto minmax(0, 1fr) auto;
 
-  padding: clamp(1.25rem, 3vw, 2.5rem) 0;
+  padding:
+    clamp(1.25rem, 3vw, 2.5rem)
+    0
+    var(--metal-clearance);
 }
 
 /* Fixed top area */
