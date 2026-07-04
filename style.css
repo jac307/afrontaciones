@@ -389,20 +389,20 @@ body.inner-page {
 /* Links */
 /* -------------------------------------------------- */
 
-a {
+
+.about-content a,
+.about-content a:visited {
   color: darkred;
+  text-decoration-color: darkred;
 }
 
-a:visited {
+.about-content a:hover,
+.about-content a:focus-visible {
   color: darkred;
+  text-decoration-thickness: 2px;
 }
 
-a:hover,
-a:focus-visible {
-  color: darkred;
-}
-
-a:focus-visible {
+.about-content a:focus-visible {
   outline: 2px solid darkred;
   outline-offset: 4px;
 }
