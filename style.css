@@ -516,6 +516,24 @@ body.testimonies-page {
   background-image: url("imgs/bg-img3.jpg");
 }
 
+body.testimonies-page .inner-header h1 {
+  color: white;
+}
+
+body.testimonies-page .home-button,
+body.testimonies-page .home-button:visited {
+  color: white;
+}
+
+body.testimonies-page .home-button:hover,
+body.testimonies-page .home-button:focus-visible {
+  color: red;
+}
+
+body.testimonies-page .inner-divider-top {
+  border-top-color: white;
+}
+
 
 /* Scrollable centre area containing the six buttons */
 
