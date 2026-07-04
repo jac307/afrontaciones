@@ -1,7 +1,7 @@
 @font-face {
-  font-family: "Cinematica";
-  src: url("fonts/Cinematica.otf") format("opentype");
-  font-weight: normal;
+  font-family: "Elegant Typewriter";
+  src: url("fonts/ELEGANT TYPEWRITER Regular.ttf") format("truetype");
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
@@ -18,27 +18,32 @@
   box-sizing: border-box;
 }
 
-html,
-body {
+html {
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   margin: 0;
-  overflow: hidden;
 }
 
 body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
-body.home-page {
-  background-image: url("imgs/bg-img.jpg");
-}
+/* -------------------------------------------------- */
+/* Homepage */
+/* -------------------------------------------------- */
 
-body.inner-page {
-  background-image: url("imgs/bg-img2.jpg");
+body.home-page {
+  height: 100%;
+  overflow: hidden;
+
+  background-image: url("imgs/bg-img.jpg");
 }
 
 .home-layout {
@@ -51,8 +56,8 @@ body.inner-page {
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 
   gap: clamp(1rem, 4vh, 3rem);
   padding: clamp(1rem, 3vw, 3rem);
@@ -65,13 +70,14 @@ body.inner-page {
   max-width: 80vw;
   margin: 0;
 
-  font-family: Elegant Typewriter, American Typewriter;
+  font-family: "Cinematica", sans-serif;
   font-size: clamp(1.5rem, 5vw, 6rem);
-  font-weight: normal;
+  font-weight: 400;
   line-height: 1;
   text-align: center;
 
   white-space: normal;
+  overflow-wrap: break-word;
 }
 
 .image-menu {
@@ -92,6 +98,8 @@ body.inner-page {
 
   color: black;
   text-decoration: none;
+
+  -webkit-tap-highlight-color: rgba(139, 0, 0, 0.35);
 }
 
 .menu-item img {
@@ -100,8 +108,6 @@ body.inner-page {
   width: 100%;
   height: auto;
   aspect-ratio: 1000 / 726;
-
-  -webkit-tap-highlight-color: darkred;
 
   object-fit: cover;
 
@@ -120,13 +126,13 @@ body.inner-page {
 
   max-width: 90%;
 
-  font-family: "Elegant Typewriter", monospace;
+  font-family: "Elegant Typewriter", Courier New;
   font-size: clamp(0.65rem, 1.7vw, 1.4rem);
   font-weight: 700;
   text-align: center;
   white-space: nowrap;
 
-  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.8);
+  text-shadow: 0 1px 5px rgba(255, 255, 255, 0.8);
 }
 
 .menu-item:hover img,
@@ -144,8 +150,128 @@ body.inner-page {
   outline: 2px solid darkred;
 }
 
+/* -------------------------------------------------- */
+/* Inner pages */
+/* -------------------------------------------------- */
+
+body.inner-page {
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  background-image: url("imgs/bg-img2.jpg");
+
+  font-family: "Elegant Typewriter", Courier New;
+  font-weight: 400;
+}
+
+.inner-layout {
+  width: min(90vw, 1100px);
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 5rem) 0;
+}
+
+.inner-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 2rem;
+}
+
+.inner-header h1 {
+  margin: 0;
+
+  font-family: "Elegant Typewriter", Courier New;
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.home-button {
+  font-family: "Elegant Typewriter", Courier New;
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  font-weight: 700;
+
+  color: inherit;
+  text-decoration: none;
+
+  -webkit-tap-highlight-color: rgba(139, 0, 0, 0.35);
+}
+
+.home-button:hover,
+.home-button:focus-visible {
+  color: darkred;
+}
+
+.home-button:focus-visible {
+  outline: 2px solid darkred;
+  outline-offset: 4px;
+}
+
+.inner-divider {
+  width: 100%;
+  margin: clamp(1rem, 2vw, 1.5rem) 0
+          clamp(2rem, 5vw, 4rem);
+
+  border: 0;
+  border-top: 2px solid currentColor;
+}
+
+/* -------------------------------------------------- */
+/* Exhibition page */
+/* -------------------------------------------------- */
+
+.exhibition-content {
+  font-family: "Elegant Typewriter", Courier New;
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+.exhibition-content section + section {
+  margin-top: clamp(4rem, 8vw, 7rem);
+}
+
+.exhibition-content h2 {
+  margin: 0 0 1.5rem;
+
+  font-family: "Elegant Typewriter", Courier New;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.exhibition-content p {
+  margin: 0 0 1.5rem;
+}
+
+.exhibition-content ol {
+  margin: 2rem 0 0;
+  padding-left: clamp(1.5rem, 4vw, 3rem);
+}
+
+.exhibition-content li {
+  margin-bottom: 1.75rem;
+  padding-left: 0.5rem;
+}
+
+.exhibition-content li::marker {
+  font-family: "Elegant Typewriter", Courier New;
+  font-weight: 700;
+}
+
+.exhibition-content strong {
+  font-family: "Elegant Typewriter", Courier New;
+  font-weight: 700;
+}
+
+/* -------------------------------------------------- */
+/* Responsive layout */
+/* -------------------------------------------------- */
+
 @media (max-aspect-ratio: 3 / 4) {
   .site-title {
+    max-width: 90vw;
     font-size: clamp(1.5rem, 8vw, 3rem);
   }
 
@@ -156,5 +282,24 @@ body.inner-page {
 
   .menu-label {
     font-size: clamp(0.65rem, 3vw, 1rem);
+  }
+}
+
+@media (max-width: 600px) {
+  .inner-layout {
+    width: 88vw;
+  }
+
+  .inner-header {
+    align-items: baseline;
+    gap: 1rem;
+  }
+
+  .inner-header h1 {
+    font-size: clamp(1.8rem, 10vw, 3rem);
+  }
+
+  .exhibition-content {
+    line-height: 1.55;
   }
 }
