@@ -1,3 +1,7 @@
+/* ==================================================
+   1. FONTS AND WEBSITE VARIABLES
+   ================================================== */
+
 @font-face {
   font-family: "Elegant Typewriter";
   src: url("fonts/ELEGANT TYPEWRITER Regular.ttf") format("truetype");
@@ -14,6 +18,23 @@
   font-display: swap;
 }
 
+:root {
+  --font-main: "Elegant Typewriter", "Courier New", monospace;
+
+  --color-text: #000;
+  --color-accent: darkred;
+
+  --focus-width: 2px;
+  --focus-offset: 4px;
+
+  --page-width: min(90vw, 1100px);
+}
+
+
+/* ==================================================
+   2. BASIC RESET AND GLOBAL STYLES
+   ================================================== */
+
 * {
   box-sizing: border-box;
 }
@@ -26,26 +47,35 @@ body {
 }
 
 body {
+  color: var(--color-text);
+
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
 
-  font-family: "Elegant Typewriter", "Courier New", monospace;
+  font-family: var(--font-main);
   font-weight: 400;
 }
 
-/* -------------------------------------------------- */
-/* Homepage */
-/* -------------------------------------------------- */
+
+/* ==================================================
+   3. HOMEPAGE
+   ================================================== */
+
+/* Homepage background and fixed-screen behaviour */
 
 body.home-page {
   height: 100vh;
   height: 100dvh;
+
   overflow: hidden;
 
   background-image: url("imgs/bg-img.jpg");
 }
+
+
+/* Centres the homepage title and navigation images */
 
 .home-layout {
   position: fixed;
@@ -54,7 +84,6 @@ body.home-page {
   width: 100%;
   height: 100vh;
   height: 100dvh;
-  min-width: 0;
 
   display: flex;
   flex-direction: column;
@@ -67,12 +96,15 @@ body.home-page {
   overflow: hidden;
 }
 
+
+/* Homepage title */
+
 .site-title {
   width: fit-content;
   max-width: 80vw;
   margin: 0;
 
-  font-family: "Elegant Typewriter", "Courier New", monospace;
+  font-family: var(--font-main);
   font-size: clamp(1.5rem, 5vw, 6rem);
   font-weight: 400;
   line-height: 1;
@@ -82,41 +114,55 @@ body.home-page {
   overflow-wrap: break-word;
 }
 
+
+/* Three-column homepage menu */
+
 .image-menu {
   width: min(92vw, 1100px);
   min-width: 0;
 
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+
   gap: clamp(0.5rem, 2.5vw, 2.5rem);
 }
+
+
+/* Individual homepage image link */
 
 .menu-item {
   position: relative;
 
   width: 100%;
   min-width: 0;
+
   overflow: hidden;
 
-  color: black;
+  color: var(--color-text);
   text-decoration: none;
 
   -webkit-tap-highlight-color: rgba(139, 0, 0, 0.35);
 }
+
+
+/* Homepage menu images */
 
 .menu-item img {
   display: block;
 
   width: 100%;
   height: auto;
-  aspect-ratio: 1000 / 726;
 
+  aspect-ratio: 1000 / 726;
   object-fit: cover;
 
   transition:
     transform 0.25s ease,
     opacity 0.25s ease;
 }
+
+
+/* Text positioned over each homepage image */
 
 .menu-label {
   position: absolute;
@@ -128,7 +174,7 @@ body.home-page {
 
   max-width: 90%;
 
-  font-family: "Elegant Typewriter", "Courier New", monospace;
+  font-family: var(--font-main);
   font-size: clamp(0.65rem, 1.7vw, 1.4rem);
   font-weight: 700;
   text-align: center;
@@ -137,6 +183,9 @@ body.home-page {
   text-shadow: 0 1px 5px rgba(255, 255, 255, 0.8);
 }
 
+
+/* Homepage image interaction */
+
 .menu-item:hover img,
 .menu-item:focus-visible img {
   transform: scale(1.04);
@@ -144,32 +193,44 @@ body.home-page {
 }
 
 .menu-item:focus-visible {
-  outline: 2px solid darkred;
-  outline-offset: 4px;
+  outline: var(--focus-width) solid var(--color-accent);
+  outline-offset: var(--focus-offset);
 }
 
 .menu-item:active {
-  outline: 2px solid darkred;
+  outline: var(--focus-width) solid var(--color-accent);
 }
 
-/* -------------------------------------------------- */
-/* Inner pages */
-/* -------------------------------------------------- */
+
+/* ==================================================
+   4. SHARED INNER-PAGE LAYOUT
+   About, Exhibition, and Testimonies
+   ================================================== */
+
+/* Default inner-page background */
 
 body.inner-page {
   width: 100%;
   height: 100vh;
   height: 100dvh;
+
   overflow: hidden;
 
   background-image: url("imgs/bg-img2.jpg");
   background-position: center bottom;
-
-  --metal-clearance: clamp(7rem, 12vh, 10rem);
 }
 
+
+/*
+  Four rows:
+  1. Header and top line
+  2. Main scrollable content
+  3. Bottom line
+  4. Metal object
+*/
+
 .inner-layout {
-  width: min(90vw, 1100px);
+  width: var(--page-width);
   height: 100vh;
   height: 100dvh;
   margin: 0 auto;
@@ -181,11 +242,16 @@ body.inner-page {
     auto
     auto;
 
-  padding: clamp(1.25rem, 3vw, 2.5rem) 0
-           clamp(0.75rem, 2vh, 1.5rem);
+  padding:
+    clamp(1.25rem, 3vw, 2.5rem)
+    0
+    clamp(0.75rem, 2vh, 1.5rem);
 }
 
-/* Fixed top area */
+
+/* ==================================================
+   5. INNER-PAGE HEADER
+   ================================================== */
 
 .inner-top {
   width: 100%;
@@ -200,37 +266,46 @@ body.inner-page {
   gap: 2rem;
 }
 
+
+/* Page title: About, Exhibition, or Testimonies */
+
 .inner-header h1 {
   margin: 0;
 
-  font-family: "Elegant Typewriter", "Courier New", monospace;
+  font-family: var(--font-main);
   font-size: clamp(2rem, 5vw, 4.5rem);
   font-weight: 700;
   line-height: 1;
 }
 
+
+/* Home link in the upper-right corner */
+
 .home-button {
-  font-family: "Elegant Typewriter", "Courier New", monospace;
-  font-size: clamp(2rem, 2vw,6rem);
+  font-family: var(--font-main);
+  font-size: clamp(1rem, 2vw, 1.4rem);
   font-weight: 700;
 
-  color: inherit;
+  color: var(--color-text);
   text-decoration: none;
 
-  -webkit-tap-highlight-color: darkred;
+  -webkit-tap-highlight-color: rgba(139, 0, 0, 0.35);
 }
 
 .home-button:hover,
 .home-button:focus-visible {
-  color: darkred;
+  color: var(--color-accent);
 }
 
 .home-button:focus-visible {
-  outline: 2px solid darkred;
-  outline-offset: 4px;
+  outline: var(--focus-width) solid var(--color-accent);
+  outline-offset: var(--focus-offset);
 }
 
-/* Fixed dividing lines */
+
+/* ==================================================
+   6. TOP AND BOTTOM DIVIDING LINES
+   ================================================== */
 
 .inner-divider {
   width: 100%;
@@ -248,11 +323,18 @@ body.inner-page {
   margin: 0;
 }
 
-/* -------------------------------------------------- */
-/* Exhibition page */
-/* -------------------------------------------------- */
+
+/* ==================================================
+   7. ABOUT AND EXHIBITION TEXT CONTENT
+   ================================================== */
+
+/*
+  Only this centre section scrolls.
+  Header, lines, and metal object stay fixed.
+*/
 
 .exhibition-content {
+  width: min(82vw, 850px);
   min-height: 0;
   margin: 0 auto;
 
@@ -266,8 +348,8 @@ body.inner-page {
   scrollbar-gutter: stable;
   overscroll-behavior: contain;
 
-  font-family: "Elegant Typewriter", "Courier New", monospace;
-  font-size: clamp(1.3rem, 1.4vw, 1.25rem);
+  font-family: var(--font-main);
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
   font-weight: 400;
   line-height: 1.65;
 }
@@ -281,14 +363,36 @@ body.inner-page {
   margin-top: clamp(4rem, 8vw, 7rem);
 }
 
+
+/* Section headings inside About and Exhibition */
+
 .exhibition-content h2 {
   margin: 0 0 1.5rem;
 
-  font-family: "Elegant Typewriter", "Courier New", monospace;
+  font-family: var(--font-main);
   font-size: clamp(1.5rem, 3vw, 2.5rem);
   font-weight: 400;
   line-height: 1.2;
 }
+
+.exhibition-content h3 {
+  margin: 0 0 1rem;
+
+  font-family: var(--font-main);
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.exhibition-content h4 {
+  margin: 0 0 1.5rem;
+
+  font-family: var(--font-main);
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+
+/* Paragraphs and numbered lists */
 
 .exhibition-content p {
   margin: 0 0 1.5rem;
@@ -304,15 +408,76 @@ body.inner-page {
   padding-left: 0.5rem;
 }
 
-.exhibition-content li::marker {
-  font-family: "Elegant Typewriter", "Courier New", monospace;
+.exhibition-content li::marker,
+.exhibition-content strong {
+  font-family: var(--font-main);
   font-weight: 700;
 }
 
-.exhibition-content strong {
-  font-family: "Elegant Typewriter", "Courier New", monospace;
-  font-weight: 700;
+
+/* ==================================================
+   8. IMAGES INSIDE ABOUT OR EXHIBITION TEXT
+   ================================================== */
+
+.content-image {
+  width: 100%;
+  margin: clamp(2rem, 5vh, 4rem) auto;
 }
+
+.content-image img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+  max-height: 65vh;
+
+  object-fit: contain;
+}
+
+.content-image figcaption {
+  margin-top: 0.75rem;
+
+  color: var(--color-accent);
+
+  font-family: var(--font-main);
+  font-size: clamp(0.8rem, 1.1vw, 1rem);
+  line-height: 1.4;
+  text-align: center;
+}
+
+
+/* Optional smaller image variation */
+
+.content-image-small {
+  width: min(100%, 800px);
+}
+
+
+/* ==================================================
+   9. LINKS INSIDE THE ABOUT PAGE
+   ================================================== */
+
+.about-content a,
+.about-content a:visited {
+  color: var(--color-accent);
+  text-decoration-color: var(--color-accent);
+}
+
+.about-content a:hover,
+.about-content a:focus-visible {
+  color: var(--color-accent);
+  text-decoration-thickness: 2px;
+}
+
+.about-content a:focus-visible {
+  outline: var(--focus-width) solid var(--color-accent);
+  outline-offset: var(--focus-offset);
+}
+
+
+/* ==================================================
+   10. METAL OBJECT AT THE BOTTOM
+   ================================================== */
 
 .metal-object-container {
   width: 100%;
@@ -340,9 +505,144 @@ body.inner-page {
   object-fit: contain;
 }
 
-/* -------------------------------------------------- */
-/* Responsive layout */
-/* -------------------------------------------------- */
+
+/* ==================================================
+   11. TESTIMONIES PAGE
+   ================================================== */
+
+/* Different background for the Testimonies page */
+
+body.testimonies-page {
+  background-image: url("imgs/bg-img3.jpg");
+}
+
+
+/* Scrollable centre area containing the six buttons */
+
+.testimonies-content {
+  width: min(88vw, 1000px);
+  min-height: 0;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding:
+    clamp(1rem, 2.5vh, 2rem)
+    clamp(0.25rem, 1vw, 0.75rem);
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  scrollbar-gutter: stable;
+  overscroll-behavior: contain;
+}
+
+
+/* Two rows of three buttons on larger screens */
+
+.testimonies-grid {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(2, auto);
+
+  gap:
+    clamp(0.75rem, 2vh, 1.5rem)
+    clamp(0.75rem, 2vw, 2rem);
+}
+
+
+/* Individual testimony button */
+
+.testimony-item {
+  position: relative;
+
+  display: block;
+
+  width: 100%;
+  min-width: 0;
+
+  overflow: hidden;
+
+  color: var(--color-text);
+  text-decoration: none;
+
+  -webkit-tap-highlight-color: rgba(139, 0, 0, 0.35);
+}
+
+
+/* Testimony button image */
+
+.testimony-item img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  aspect-ratio: 1000 / 726;
+  object-fit: cover;
+
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+
+/* Text displayed over each testimony image */
+
+.testimony-label {
+  position: absolute;
+  top: clamp(0.4rem, 1vw, 1rem);
+  left: 50%;
+  z-index: 2;
+
+  transform: translateX(-50%);
+
+  max-width: 90%;
+
+  color: var(--color-text);
+
+  font-family: var(--font-main);
+  font-size: clamp(0.75rem, 1.6vw, 1.3rem);
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+
+  text-shadow: 0 1px 5px rgba(255, 255, 255, 0.9);
+}
+
+
+/* Testimony button interaction */
+
+.testimony-item:hover img,
+.testimony-item:focus-visible img {
+  transform: scale(1.04);
+  opacity: 0.85;
+}
+
+.testimony-item:hover .testimony-label,
+.testimony-item:focus-visible .testimony-label {
+  color: var(--color-accent);
+}
+
+.testimony-item:focus-visible {
+  outline: var(--focus-width) solid var(--color-accent);
+  outline-offset: var(--focus-offset);
+}
+
+.testimony-item:active {
+  outline: var(--focus-width) solid var(--color-accent);
+}
+
+
+/* ==================================================
+   12. RESPONSIVE HOMEPAGE
+   ================================================== */
+
+/* Taller and narrower screens */
 
 @media (max-aspect-ratio: 3 / 4) {
   .site-title {
@@ -359,6 +659,11 @@ body.inner-page {
     font-size: clamp(0.65rem, 3vw, 1rem);
   }
 }
+
+
+/* ==================================================
+   13. TABLET AND PHONE LAYOUT
+   ================================================== */
 
 @media (max-width: 600px) {
   .inner-layout {
@@ -383,174 +688,12 @@ body.inner-page {
     padding: 1.25rem 0.25rem;
     line-height: 1.55;
   }
-}
 
-.content-image {
-  width: 100%;
-  margin: clamp(2rem, 5vh, 4rem) auto;
-}
-
-.content-image img {
-  display: block;
-
-  width: 100%;
-  height: auto;
-  max-height: 65vh;
-
-  object-fit: contain;
-}
-
-.content-image figcaption {
-  margin-top: 0.75rem;
-
-  font-family: "Elegant Typewriter", "Courier New", monospace;
-  font-size: clamp(0.8rem, 1.1vw, 1rem);
-  line-height: 1.4;
-  text-align: center;
-
-  color: darkred;
-}
-
-.content-image-small {
-  width: min(100%, 800px);
-}
-
-/* -------------------------------------------------- */
-/* Links */
-/* -------------------------------------------------- */
-
-
-.about-content a,
-.about-content a:visited {
-  color: darkred;
-  text-decoration-color: darkred;
-}
-
-.about-content a:hover,
-.about-content a:focus-visible {
-  color: darkred;
-  text-decoration-thickness: 2px;
-}
-
-.about-content a:focus-visible {
-  outline: 2px solid darkred;
-  outline-offset: 4px;
-}
-
-/* -------------------------------------------------- */
-/* Testimonies page */
-/* -------------------------------------------------- */
-
-body.testimonies-page {
-  background-image: url("imgs/bg-img3.jpg");
-}
-
-.testimonies-content {
-  width: min(88vw, 1000px);
-  min-height: 0;
-  margin: 0 auto;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding:
-    clamp(1rem, 2.5vh, 2rem)
-    clamp(0.25rem, 1vw, 0.75rem);
-
-  overflow-x: hidden;
-  overflow-y: auto;
-
-  scrollbar-gutter: stable;
-  overscroll-behavior: contain;
-}
-
-.testimonies-grid {
-  width: 100%;
-
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  grid-template-rows: repeat(2, auto);
-
-  gap:
-    clamp(0.75rem, 2vh, 1.5rem)
-    clamp(0.75rem, 2vw, 2rem);
-}
-
-.testimony-item {
-  position: relative;
-
-  display: block;
-  width: 100%;
-  min-width: 0;
-
-  overflow: hidden;
-
-  color: black;
-  text-decoration: none;
-
-  -webkit-tap-highlight-color: rgba(139, 0, 0, 0.35);
-}
-
-.testimony-item img {
-  display: block;
-
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1000 / 726;
-
-  object-fit: cover;
-
-  transition:
-    transform 0.25s ease,
-    opacity 0.25s ease;
-}
-
-.testimony-label {
-  position: absolute;
-  top: clamp(0.4rem, 1vw, 1rem);
-  left: 50%;
-  z-index: 2;
-
-  transform: translateX(-50%);
-
-  max-width: 90%;
-
-  font-family: "Elegant Typewriter", "Courier New", monospace;
-  font-size: clamp(0.75rem, 1.6vw, 1.3rem);
-  font-weight: 700;
-  text-align: center;
-  white-space: nowrap;
-
-  color: black;
-
-  text-shadow: 0 1px 5px rgba(255, 255, 255, 0.9);
-}
-
-.testimony-item:hover img,
-.testimony-item:focus-visible img {
-  transform: scale(1.04);
-  opacity: 0.85;
-}
-
-.testimony-item:hover .testimony-label,
-.testimony-item:focus-visible .testimony-label {
-  color: darkred;
-}
-
-.testimony-item:focus-visible {
-  outline: 2px solid darkred;
-  outline-offset: 4px;
-}
-
-.testimony-item:active {
-  outline: 2px solid darkred;
-}
-
-@media (max-width: 600px) {
   .testimonies-content {
     width: 100%;
   }
+
+  /* Six images become three rows of two */
 
   .testimonies-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -562,7 +705,14 @@ body.testimonies-page {
   }
 }
 
+
+/* ==================================================
+   14. VERY SMALL PHONE LAYOUT
+   ================================================== */
+
 @media (max-width: 400px) {
+  /* Testimony images become one column */
+
   .testimonies-grid {
     grid-template-columns: 1fr;
   }
