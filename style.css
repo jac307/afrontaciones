@@ -27,7 +27,7 @@ body {
 }
 
 body {
-  background-image: url("images/background.webp");
+  background-image: url("imgs/bg-img.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
