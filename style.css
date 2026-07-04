@@ -762,7 +762,7 @@ body.testimony-page .home-button:focus-visible {
 /* White top dividing line */
 
 body.testimony-page .inner-divider-top {
-  border-top-color: white;
+  border-top-color: black;
 }
 
 
