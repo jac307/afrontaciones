@@ -499,7 +499,7 @@ body.testimonies-page {
   margin: 0 auto;
 
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 
   padding:
@@ -703,6 +703,9 @@ body.testimonies-page {
 
   .testimonies-content {
     width: 100%;
+    align-items: flex-start;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 
   /* Six images become three rows of two */
