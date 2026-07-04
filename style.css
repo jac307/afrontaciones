@@ -748,7 +748,7 @@ body.testimony-page .home-button:focus-visible {
 /* White top dividing line */
 
 body.testimony-page .inner-divider-top {
-  border-top-color: back;
+  border-top-color: white;
 }
 
 
@@ -846,10 +846,6 @@ body.testimony-page .inner-divider-top {
   .testimony-content {
     width: 100%;
     padding: 1.25rem 0.25rem;
-  }
-
-  .testimony-gallery {
-    grid-template-columns: 1fr;
   }
 
   .testimony-gallery-item img {
